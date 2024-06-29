@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather -</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/bootstrap.bundle.js"></script>
+</head>
+
+<body class="ff-roboto">
+    <header class="main-bg-color py-5">
+        <div class="container d-flex justify-content-between flex-wrap">
+            <a class="navbar-brand d-flex " href="#">
+                <img class="me-1" src="images/logo.png" alt="Weather site Logo">
+                <div class="ms-2">
+                    <h1 class="fs-6 text-white mb-0">Weather</h1>
+                    <small class="main-gray">tagline goes here</small>
+                </div>
+            </a>
+            <div class="main-navigation d-flex">
+                <ul class="nav ms-auto">
+                    <li class="ms-2">
+                        <a class="text-decoration-none text-white fs-7 px-4 py-1" href="index.html">Home</a>
+                    </li>
+                    <li class="ms-2">
+                        <a class="text-decoration-none text-white fs-7 px-4 py-1" href="#">News</a>
+                    </li>
+                    <li class="ms-2">
+                        <a class="text-decoration-none text-white fs-7 px-4 py-1" href="#">Live cameras</a>
+                    </li>
+                    <li class="ms-2">
+                        <a class="text-decoration-none text-white fs-7 px-4 py-1" href="#">Photos</a>
+                    </li>
+                    <li class="ms-2">
+                        <a class="text-decoration-none text-white fs-7 px-4 py-1" href="#">Contact</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div id="barIcon" class="bar-icon me-2 d-none">
+                <i class="fa-solid fa-bars text-white"></i>
+            </div>
+
+            <div id="resNav" class="res-navigation w-100 second-bg-color mt-5 overflow-hidden rounded rounded-3 d-none">
+                <ul class="row list-unstyled text-center ">
+                    <li class="col-12 py-3 ">
+                        <a class="text-decoration-none text-white fs-7 px-4 py-1" href="index.html">Home</a>
+                    </li>
+                    <li class="col-12 py-3">
+                        <a class="text-decoration-none text-white fs-7 px-4 py-1" href="#">News</a>
+                    </li>
+                    <li class="col-12 py-3">
+                        <a class="text-decoration-none text-white fs-7 px-4 py-1" href="#">Live cameras</a>
+                    </li>
+                    <li class="col-12 py-3">
+                        <a class="text-decoration-none text-white fs-7 px-4 py-1" href="#">Photos</a>
+                    </li>
+                    <li class="col-12 py-3">
+                        <a class="text-decoration-none text-white fs-7 px-4 py-1" href="#">Contact</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="hero main-bg-color">
+        <div class="container">
+            <form id="searchForm" class="search-grb d-flex position-relative">
+                <input type="text" id="searchInput" class="w-100 main-bg-color text-white fs-7"
+                    placeholder="Find your location...">
+                <input type="button" id="searchButton" class="position-absolute main-bg-blue text-white fs-7"
+                    value="Find">
+            </form>
+
+            <div id="forecasTbl" class="forecast-tbl d-grid mt-5 border border-0 rounded rounded-2 overflow-hidden">
+                <!-- javascript code  -->
+            </div>
+
+    </section>
+
+    <footer class="third-bg-color">
+        <div class="container d-flex justify-content-between py-4 flex-wrap">
+            <form class="subscribe-grb d-flex w-70 position-relative py-4">
+                <input type="text" class="w-100 main-bg-color text-white fs-7"
+                    placeholder="Enter your email to subscribe...">
+                <input type="button" class="position-absolute main-bg-blue text-white fs-7 px-2 py-0" value="Subscribe">
+            </form>
+
+            <div class="icons d-flex align-items-center mb-2">
+                <a href="" class="facebook border-0 rounded-circle ms-2 main-bg-color"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+                <a href="" class="twitter border-0 rounded-circle ms-2 main-bg-color"><i
+                        class="fa-brands fa-twitter"></i></a>
+                <a href="" class="google border-0 rounded-circle ms-2 main-bg-color"><i
+                        class="fa-brands fa-google-plus-g"></i></a>
+                <a href="" class="pinterest border-0 rounded-circle ms-2 main-bg-color"><i
+                        class="fa-brands fa-pinterest"></i></a>
+            </div>
+
+            <p class="main-gray fs-7">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
+        </div>
+
+
+    </footer>
+
+    <script src="javascript/script.js"></script>
+</body>
+
+</html>
