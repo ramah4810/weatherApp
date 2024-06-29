@@ -1,27 +1,19 @@
-"use strict"
-
-const barIcon = document.getElementById("barIcon");
-const resNav = document.getElementById("resNav");
-const menuItems = document.querySelectorAll(".main-navigation a, .res-navigation a");
-const currentLocation = window.location.href.split("/").pop();
-const forecasTbl = document.getElementById("forecasTbl");
-
-window.onload = function () {
-    fetchWeather("istanbul");
-};
-
+let barIcon = document.getElementById("barIcon");
+let resNav = document.getElementById("resNav");
+let menuItems = document.querySelectorAll(".main-navigation a, .res-navigation a");
+let currentLocation = window.location.href.split("/").pop();
+let forecasTbl = document.getElementById("forecasTbl");
 
 barIcon.addEventListener("click", resNavOpen);
 
-window.addEventListener("resize", function () {
+window.addEventListener("resize", function() {
     if (window.innerWidth > 990) {
         resNav.classList.remove("d-block");
         resNav.classList.add("d-none");
     }
 });
 
-
-function resNavOpen() {
+function resNavOpen () {
     if (resNav.classList.contains("d-none")) {
         resNav.classList.remove("d-none");
         resNav.classList.add("d-block");
@@ -31,16 +23,18 @@ function resNavOpen() {
     }
 }
 
-
-for (let menuItem of menuItems) {
-    if (menuItem.getAttribute("href") === currentLocation) {
-        menuItem.classList.add("active");
+for (let i = 0; i < menuItems.length; i++) {
+    if (menuItems[i].getAttribute("href") === currentLocation) {
+        menuItems[i].classList.add("active");
     }
 }
 
-
 const API_BASE_URL = "https://api.weatherapi.com/v1";
 const API_KEY = "4156b8ed5e9946e1ae8164159242606";
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+
 async function fetchWeather(city) {
     const response = await fetch(`${API_BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=3`)
     const data = await response.json();
@@ -48,34 +42,27 @@ async function fetchWeather(city) {
     displayWeather(data);
 }
 
-
-const searchForm = document.getElementById("searchForm");
-const searchInput = document.getElementById("searchInput");
-const searchButton = document.getElementById("searchButton");
-searchButton.addEventListener("click", function () {
-    const cityName = searchInput.value;
+searchButton.addEventListener("click", function() {
+    let cityName = searchInput.value;
     if (cityName) {
         fetchWeather(cityName);
     }
 });
 
-
-
 function displayWeather(data) {
-    const date = new Date();
+    var date = new Date();
     const options = { weekday: 'long' };
-    const today = date.toLocaleDateString('en-US', options);
-    const tomorrow = new Date();
+    let today = date.toLocaleDateString('en-US', options);
+    let tomorrow = new Date();
     tomorrow.setDate(date.getDate() + 1);
     const formattedTomorrow = tomorrow.toLocaleDateString('en-US', options);
-    const nextDay = new Date();
+    let nextDay = new Date();
     nextDay.setDate(date.getDate() + 2);
     const formattedNextDay = nextDay.toLocaleDateString('en-US', options);
-    const currentHour = new Date().getHours();
+    let currentHour = new Date().getHours();
     const todayDate = new Date();
-    const todayOptions = { month: 'long', day: 'numeric' };
+    const todayOptions = {month: 'long', day: 'numeric' };
     const formattedtodayDate = todayDate.toLocaleDateString('en-US', todayOptions);
-
 
     let forecasTbl = document.getElementById("forecasTbl");
     forecasTbl.innerHTML = `<div class="row">
@@ -90,9 +77,9 @@ function displayWeather(data) {
                         <span>${formattedNextDay}</span>
                     </div>
                     <div class="tbl-body today-b col-lg-4 col-md-12 second-bg-color py-2 px-4">
-                        <h3 class="main-gray fs-6 my-3">${data.location.name}</h3>
+                        <h3 class="main-gray fs-6 my-3">${data.location.country}</h3>
                         <h2 class="temp text-white fs-huge">${data.forecast.forecastday[0].day.avgtemp_c}<sup>o</sup>C</h2>
-                        <span><img src="${data.forecast.forecastday[0].hour[currentHour].condition.icon}" alt="${data.forecast.forecastday[0].day.condition.text}" class="weather-icon"></span>
+                        <span><img src="${data.forecast.forecastday[0].hour[23].condition.icon}" alt="${data.forecast.forecastday[0].day.condition.text}" class="weather-icon"></span>
                         <h6 class="main-blue fw-light">${data.forecast.forecastday[0].hour[currentHour].condition.text}</h6>
                         <span class="main-gray fs-7"><i class="fa-solid fa-umbrella fa-rotate-by main-gray me-1" style="--fa-rotate-angle: 60deg;"></i>${data.forecast.forecastday[0].hour[currentHour].will_it_rain}%</span>
                         <span class="main-gray ms-4 fs-7"><i class="fa-solid fa-wind main-gray me-1"></i>${data.forecast.forecastday[0].day.maxwind_kph}km/h</span>
@@ -112,8 +99,8 @@ function displayWeather(data) {
                     </div>
                 </div>    
             </div>`
-        
-}
+} 
 
-
-
+window.onload = function() {
+    fetchWeather("istanbul");
+};
