@@ -39,7 +39,7 @@ for (let menuItem of menuItems) {
 }
 
 
-const API_BASE_URL = "http://api.weatherapi.com/v1";
+const API_BASE_URL = "https://api.weatherapi.com/v1";
 const API_KEY = "4156b8ed5e9946e1ae8164159242606";
 async function fetchWeather(city) {
     const response = await fetch(`${API_BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=3`)
